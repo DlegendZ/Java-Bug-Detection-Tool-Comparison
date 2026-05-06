@@ -1,0 +1,20 @@
+========================================================================
+  METRICS SUMMARY - Static Analysis Tools on Defects4J
+========================================================================
+  Tool             TP        FP     FN         TN    Prec  Recall      F1     FPR Avg Time
+  ──────────────────────────────────────────────────────────────────────
+  checkstyle      540  11001350    100      33859     0.0  0.8438  0.0001  0.9969 1h 51m 11s
+  pmd             190    524114    450      29487  0.0004  0.2969  0.0007  0.9467 0h 55m 12s
+  sonarqube       406    860215    234      33859  0.0005  0.6344  0.0009  0.9621 10h 34m 39s
+  spotbugs         50    157327    590      32583  0.0003  0.0781  0.0006  0.8284 1h 39m 32s
+========================================================================
+
+Notes:
+  - Precision = TP / (TP + FP)
+  - Recall    = TP / (TP + FN)
+  - F1-Score  = 2 * (Precision * Recall) / (Precision + Recall)
+  - FPR       = FP / (FP + TN)
+  - Exec Time = average of 3 runs
+  - Checkstyle/SonarQube: no method-level info → Precision/Recall/F1 = 0
+  - TN computed from all methods in buggy versions minus buggy methods
+    minus methods that received warnings from that tool
